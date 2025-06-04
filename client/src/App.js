@@ -6,12 +6,12 @@ function App() {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    axios.get('/names').then(res => setNames(res.data));
+    axios.get('https://mern-app-g1y7.onrender.com/names').then(res => setNames(res.data));
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:5000/names', { value: input });
+    const res = await axios.post('https://mern-app-g1y7.onrender.com/names', { value: input });
     setNames([...names, res.data]);
     setInput('');
   };
